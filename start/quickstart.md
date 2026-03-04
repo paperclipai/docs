@@ -5,24 +5,15 @@ summary: Get Paperclip running in minutes
 
 Get Paperclip running locally in under 5 minutes.
 
-## Option 1: Docker Compose (Recommended)
-
-The fastest way to start. No Node.js install needed.
+## Quick Start (Recommended)
 
 ```sh
-docker compose -f docker-compose.quickstart.yml up --build
+npx paperclipai onboard --yes
 ```
 
-Open [http://localhost:3100](http://localhost:3100). That's it.
+This walks you through setup, configures your environment, and gets Paperclip running.
 
-The Docker image includes Claude Code CLI and Codex CLI pre-installed for local adapter runs. Pass API keys to enable them:
-
-```sh
-ANTHROPIC_API_KEY=sk-... OPENAI_API_KEY=sk-... \
-  docker compose -f docker-compose.quickstart.yml up --build
-```
-
-## Option 2: Local Development
+## Local Development
 
 Prerequisites: Node.js 20+ and pnpm 9+.
 
@@ -33,9 +24,9 @@ pnpm dev
 
 This starts the API server and UI at [http://localhost:3100](http://localhost:3100).
 
-No Docker or external database required — Paperclip uses an embedded PostgreSQL instance by default.
+No external database required — Paperclip uses an embedded PostgreSQL instance by default.
 
-## Option 3: One-Command Bootstrap
+## One-Command Bootstrap
 
 ```sh
 pnpm paperclipai run

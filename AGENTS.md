@@ -1,33 +1,29 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
-
 # Documentation project instructions
 
 ## About this project
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Run `mint dev` to preview locally
-- Run `mint broken-links` to check links
+- This is a documentation site built on Docusaurus
+- Documentation content lives in root-level markdown and MDX files under folders like `start/`, `guides/`, `deploy/`, `adapters/`, `api/`, and `cli/`
+- Site configuration lives in `docusaurus.config.ts` and `sidebars.ts`
+- Run `npm run start` to preview locally
+- Run `npm run build` to verify the production build
 
 ## Terminology
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+- Use "company" for the top-level Paperclip organization
+- Use "agent" for AI employees inside a company
+- Use "issue" or "task" only when the product/UI actually uses that term
+- Use "board" for the human oversight layer
 
 ## Style preferences
 
-{/* Add any project-specific style rules below */}
-
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
+- Use active voice and second person
+- Keep sentences concise
 - Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
+- Bold UI labels such as **Settings**
+- Use code formatting for paths, commands, file names, env vars, and identifiers
 
 ## Content boundaries
 
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Document user-facing and operator-facing product behavior
+- Avoid documenting internal-only implementation details unless the page is explicitly a spec or reference page

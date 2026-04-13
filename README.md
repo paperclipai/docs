@@ -14,6 +14,28 @@ npm run build
 npm run typecheck
 ```
 
+## Run as a service
+
+Use these commands when you want the docs site to run as a long-lived process:
+
+```bash
+# Development preview service
+npm run start:service
+```
+
+```bash
+# Production-style service
+npm run service
+```
+
+Both service commands bind to `0.0.0.0` and default to port `3000`. Set `HOST` or `PORT` to override them:
+
+```bash
+PORT=4300 npm run service
+```
+
+Use `npm run build` before `npm run serve:service` if you want to split the build and run steps across separate deploy phases.
+
 ## Structure
 
 - `start/`, `guides/`, `deploy/`, `adapters/`, `api/`, `cli/`, `specs/`: documentation content

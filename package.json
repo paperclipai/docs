@@ -5,8 +5,11 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "start:service": "sh -c 'BROWSER=none exec docusaurus start --host ${HOST:-0.0.0.0} --port ${PORT:-3000}'",
     "build": "docusaurus build",
     "serve": "docusaurus serve",
+    "serve:service": "sh -c 'exec docusaurus serve --host ${HOST:-0.0.0.0} --port ${PORT:-3000}'",
+    "service": "npm run build && npm run serve:service",
     "clear": "docusaurus clear",
     "deploy": "docusaurus deploy",
     "write-translations": "docusaurus write-translations",

@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://paperclipai-paperclip.mintlify.app',
+  url: 'https://docs.paperclip.ing',
   baseUrl: '/',
 
   organizationName: 'paperclipai',
@@ -81,8 +81,9 @@ const config: Config = {
   themeConfig: {
     image: 'images/hero-light.png',
     colorMode: {
-      defaultMode: 'light',
-      respectPrefersColorScheme: true,
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     docs: {
       sidebar: {
@@ -94,7 +95,7 @@ const config: Config = {
       title: 'Paperclip',
       logo: {
         alt: 'Paperclip',
-        src: 'logo/light.svg',
+        src: 'logo/dark.svg',
         srcDark: 'logo/dark.svg',
       },
       items: [
@@ -152,7 +153,7 @@ const config: Config = {
       copyright: `Paperclip documentation · ${new Date().getFullYear()}`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['bash', 'json', 'yaml', 'toml'],
     },

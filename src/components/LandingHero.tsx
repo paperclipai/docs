@@ -50,8 +50,8 @@ export default function LandingHero(): React.JSX.Element {
             </div>
             <div className="hero-status-row">
               <span className="hero-status-dot" />
-              <span className="hero-status-label">PAP-1865</span>
-              <span className="hero-status-meta">owned</span>
+              <span className="hero-status-label">ACME-102</span>
+              <span className="hero-status-meta">Ship checkout</span>
             </div>
           </div>
         </div>

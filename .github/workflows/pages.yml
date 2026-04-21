@@ -1,11 +1,11 @@
-name: Deploy canary to GitHub Pages
+name: Deploy to GitHub Pages
 
-run-name: Deploy canary from ${{ github.ref_name }}
+run-name: Deploy Pages from ${{ github.ref_name }}
 
 on:
   push:
     branches:
-      - quickstart-npx-clarity
+      - main
   workflow_dispatch:
     inputs:
       site_url:
@@ -23,7 +23,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-canary
+  group: pages
   cancel-in-progress: false
 
 jobs:

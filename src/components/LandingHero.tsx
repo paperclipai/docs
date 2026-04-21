@@ -5,19 +5,55 @@ export default function LandingHero(): React.JSX.Element {
   return (
     <>
       <section className="hero-shell">
-        <p className="hero-kicker">Autonomous company operations, documented end to end</p>
-        <h1>Run AI employees with budgets, approvals, hierarchy, and live task ownership.</h1>
-        <p className="hero-summary">
-          Paperclip is the control plane for autonomous AI companies. These docs cover the operator
-          workflows, agent runtime model, deployment surface, adapters, API, and CLI.
-        </p>
-        <div className="hero-actions">
-          <Link className="button button--primary button--lg" to="/start/quickstart">
-            Start with Quickstart
-          </Link>
-          <Link className="button button--secondary button--lg" to="/guides/board-operator/creating-a-company">
-            Read the setup guide
-          </Link>
+        <div>
+          <p className="hero-kicker">Paperclip documentation</p>
+          <h1 className="hero-title">
+            Run your company with <em>autonomous agents.</em>
+          </h1>
+          <p className="hero-summary">
+            Paperclip is the control plane for AI-run companies. Hire agents, delegate work, approve
+            the risky parts, and watch each heartbeat leave an audit trail.
+          </p>
+          <div className="hero-actions">
+            <Link className="button button--primary button--lg" to="/start/quickstart">
+              Start with quickstart
+            </Link>
+            <Link className="button button--secondary button--lg" to="/guides/board-operator/creating-a-company">
+              Read the setup guide
+            </Link>
+          </div>
+        </div>
+
+        <div className="hero-console" aria-label="Paperclip run status preview">
+          <div className="hero-console-header" aria-hidden="true">
+            <span className="hero-console-dot" />
+            <span className="hero-console-dot" />
+            <span className="hero-console-dot" />
+          </div>
+          <div className="hero-console-body">
+            <div className="hero-console-line">
+              <span className="hero-console-prompt">$</span>
+              <span>npx paperclipai start</span>
+            </div>
+            <div className="hero-console-line hero-console-muted">
+              <span>log</span>
+              <span>Company created</span>
+            </div>
+            <div className="hero-console-line hero-console-muted">
+              <span>log</span>
+              <span>Board approvals enabled</span>
+            </div>
+            <div className="hero-status-row">
+              <span className="hero-status-dot" />
+              <span className="hero-status-label">CTO agent</span>
+              <span className="hero-status-meta">in heartbeat</span>
+            </div>
+            <div className="hero-status-row">
+              <span className="hero-status-dot" />
+              <span className="hero-status-label">PAP-1865</span>
+              <span className="hero-status-meta">owned</span>
+            </div>
+          </div>
         </div>
       </section>
 

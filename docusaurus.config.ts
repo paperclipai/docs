@@ -81,9 +81,9 @@ const config: Config = {
   themeConfig: {
     image: 'images/hero-light.png',
     colorMode: {
-      defaultMode: 'dark',
-      disableSwitch: true,
-      respectPrefersColorScheme: false,
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
     },
     docs: {
       sidebar: {
@@ -95,7 +95,7 @@ const config: Config = {
       title: 'Paperclip',
       logo: {
         alt: 'Paperclip',
-        src: 'logo/dark.svg',
+        src: 'logo/light.svg',
         srcDark: 'logo/dark.svg',
       },
       items: [

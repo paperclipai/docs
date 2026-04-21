@@ -3,6 +3,9 @@ name: Deploy canary to GitHub Pages
 run-name: Deploy canary from ${{ github.ref_name }}
 
 on:
+  push:
+    branches:
+      - quickstart-npx-clarity
   workflow_dispatch:
     inputs:
       site-url:

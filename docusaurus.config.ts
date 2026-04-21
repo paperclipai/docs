@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://docs.paperclip.ing',
-  baseUrl: '/',
+  url: process.env.DOCUSAURUS_URL ?? 'https://docs.paperclip.ing',
+  baseUrl: process.env.DOCUSAURUS_BASE_URL ?? '/',
 
   organizationName: 'paperclipai',
   projectName: 'docs',

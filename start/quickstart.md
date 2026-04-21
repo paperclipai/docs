@@ -5,15 +5,15 @@ summary: Get Paperclip running in minutes
 
 Get Paperclip running locally in under 5 minutes.
 
-## Quick Start (npx)
+## Quick start (recommended)
 
-The fastest way to get started. No cloning required — just run:
+The fastest way to get started needs no clone:
 
 ```sh
-npx paperclipai
+npx paperclipai onboard --yes
 ```
 
-This walks you through setup and starts the server. Open [http://localhost:3100](http://localhost:3100) when it's ready.
+This walks you through setup, configures your environment, and gets Paperclip running.
 
 To **start Paperclip again later**, run:
 
@@ -21,7 +21,7 @@ To **start Paperclip again later**, run:
 npx paperclipai run
 ```
 
-> **npx vs pnpm:** Use `npx paperclipai` to run Paperclip as an end user. The `pnpm paperclipai` command only works inside a cloned copy of the Paperclip source repo (see Local Development below). If you get a "Command not found" error, you're probably using `pnpm` outside the repo — switch to `npx`.
+> **npx vs pnpm:** Use `npx paperclipai` to run Paperclip as an end user. The `pnpm paperclipai` command only works inside a cloned copy of the Paperclip source repo. If you get a "Command not found" error, you're probably using `pnpm` outside the repo. Switch to `npx`.
 
 ### Passing API keys
 
@@ -48,7 +48,7 @@ ANTHROPIC_API_KEY=sk-... OPENAI_API_KEY=sk-... \
   docker compose -f docker-compose.quickstart.yml up --build
 ```
 
-## Local Development (Contributors)
+## Local development (contributors)
 
 This section is for contributors working on Paperclip itself. If you just want to use Paperclip, use the Quick Start above.
 
@@ -63,7 +63,7 @@ pnpm dev
 
 This starts the API server and UI at [http://localhost:3100](http://localhost:3100).
 
-No Docker or external database required — Paperclip uses an embedded PostgreSQL instance by default.
+No Docker or external database required. Paperclip uses an embedded PostgreSQL instance by default.
 
 Inside the cloned repo, you can also use the one-command bootstrap:
 
@@ -73,7 +73,7 @@ pnpm paperclipai run
 
 This auto-onboards if config is missing, runs health checks with auto-repair, and starts the server.
 
-## What's Next
+## What's next
 
 Once Paperclip is running:
 

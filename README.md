@@ -1,55 +1,49 @@
-# Mintlify Starter Kit
+# Paperclip Documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+This repo now runs on Docusaurus and contains the public documentation site for Paperclip.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
-
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
-
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
-
-## AI-assisted writing
-
-Set up your AI coding tool to work with Mintlify:
+## Commands
 
 ```bash
-npx skills add https://mintlify.com/docs
+npm install
+npm run start
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
-
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
+```bash
+npm run build
+npm run typecheck
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+## Run as a service
 
+Use these commands when you want the docs site to run as a long-lived process:
+
+```bash
+# Development preview service
+npm run start:service
 ```
-mint dev
+
+```bash
+# Production-style service
+npm run service
 ```
 
-View your local preview at `http://localhost:3000`.
+Both service commands bind to `0.0.0.0` and default to port `3000`. Set `HOST` or `PORT` to override them:
 
-## Publishing changes
+```bash
+PORT=4300 npm run service
+```
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+Use `npm run build` before `npm run serve:service` if you want to split the build and run steps across separate deploy phases.
 
-## Need help?
+## Structure
 
-### Troubleshooting
+- `start/`, `guides/`, `deploy/`, `adapters/`, `api/`, `cli/`, `specs/`: documentation content
+- `docusaurus.config.ts`: site configuration
+- `sidebars.ts`: sidebar structure
+- `src/`: theme overrides and custom UI
+- `static/`: copied brand assets served by Docusaurus
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+## Editing docs
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+Keep existing doc URLs stable when possible. Prefer editing the current markdown files in place instead of creating duplicate copies under a second content tree.

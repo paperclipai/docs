@@ -5,9 +5,35 @@ summary: Get Paperclip running in minutes
 
 Get Paperclip running locally in under 5 minutes.
 
-## Option 1: Docker Compose (Recommended)
+## Quick Start (npx)
 
-The fastest way to start. No Node.js install needed.
+The fastest way to get started. No cloning required — just run:
+
+```sh
+npx paperclipai
+```
+
+This walks you through setup and starts the server. Open [http://localhost:3100](http://localhost:3100) when it's ready.
+
+To **start Paperclip again later**, run:
+
+```sh
+npx paperclipai run
+```
+
+> **npx vs pnpm:** Use `npx paperclipai` to run Paperclip as an end user. The `pnpm paperclipai` command only works inside a cloned copy of the Paperclip source repo (see Local Development below). If you get a "Command not found" error, you're probably using `pnpm` outside the repo — switch to `npx`.
+
+### Passing API keys
+
+To enable local Claude Code or Codex agent runs, pass your API keys:
+
+```sh
+ANTHROPIC_API_KEY=sk-... OPENAI_API_KEY=sk-... npx paperclipai run
+```
+
+## Docker Compose
+
+No Node.js install needed.
 
 ```sh
 docker compose -f docker-compose.quickstart.yml up --build
@@ -15,18 +41,22 @@ docker compose -f docker-compose.quickstart.yml up --build
 
 Open [http://localhost:3100](http://localhost:3100). That's it.
 
-The Docker image includes Claude Code CLI and Codex CLI pre-installed for local adapter runs. Pass API keys to enable them:
+Pass API keys for local adapter runs:
 
 ```sh
 ANTHROPIC_API_KEY=sk-... OPENAI_API_KEY=sk-... \
   docker compose -f docker-compose.quickstart.yml up --build
 ```
 
-## Option 2: Local Development
+## Local Development (Contributors)
+
+This section is for contributors working on Paperclip itself. If you just want to use Paperclip, use the Quick Start above.
 
 Prerequisites: Node.js 20+ and pnpm 9+.
 
 ```sh
+git clone https://github.com/nichochar/paperclip.git
+cd paperclip
 pnpm install
 pnpm dev
 ```
@@ -35,7 +65,7 @@ This starts the API server and UI at [http://localhost:3100](http://localhost:31
 
 No Docker or external database required — Paperclip uses an embedded PostgreSQL instance by default.
 
-## Option 3: One-Command Bootstrap
+Inside the cloned repo, you can also use the one-command bootstrap:
 
 ```sh
 pnpm paperclipai run

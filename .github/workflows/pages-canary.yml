@@ -1,0 +1,73 @@
+name: Deploy canary to GitHub Pages
+
+run-name: Deploy canary from ${{ github.ref_name }}
+
+on:
+  push:
+    branches:
+      - quickstart-npx-clarity
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: GitHub Pages origin for this repository
+        required: true
+        default: https://paperclipai.github.io
+      base_url:
+        description: Docusaurus base path for this repository Pages site
+        required: true
+        default: /docs/
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-canary
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Docusaurus
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build site
+        run: npm run build
+        env:
+          DOCUSAURUS_URL: ${{ inputs.site_url || 'https://paperclipai.github.io' }}
+          DOCUSAURUS_BASE_URL: ${{ inputs.base_url || '/docs/' }}
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
